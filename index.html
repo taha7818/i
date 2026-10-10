@@ -1,0 +1,168 @@
+from pathlib import Path
+out_dir = Path("/mnt/data/fiverr_portfolio_site")
+out_dir.mkdir(exist_ok=True)
+html = r'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b14">
+<meta name="description" content="Personal portfolio of a freelance website developer creating modern, responsive websites at affordable prices.">
+<title>Developer Portfolio | Build Something Great</title>
+<style>
+:root{--bg:#080b14;--panel:#101626;--panel2:#151d30;--text:#f4f7ff;--muted:#a6b0c7;--cyan:#56f0df;--violet:#9b83ff;--line:rgba(255,255,255,.12);--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% 5%,rgba(89,77,190,.17),transparent 35%),radial-gradient(ellipse at 90% 30%,rgba(38,208,190,.10),transparent 32%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1120px,92%);margin:auto}.topbar{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(8,11,20,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:.3px}.brand-mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--violet));color:#080b14;font-weight:950}.navlinks{display:flex;gap:24px;align-items:center;color:var(--muted);font-size:.92rem}.navlinks a:hover,.navlinks a.active{color:var(--cyan)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid transparent;border-radius:999px;padding:12px 19px;font-weight:750;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}.btn:hover{transform:translateY(-2px)}.btn-primary{color:#061014;background:linear-gradient(100deg,var(--cyan),#a2fff2);box-shadow:0 8px 28px rgba(86,240,223,.18)}.btn-ghost{border-color:var(--line);background:rgba(255,255,255,.035);color:var(--text)}.menu-btn{display:none;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:12px;padding:8px 12px}.slide{min-height:100svh;padding:110px 0 70px;display:flex;align-items:center;position:relative;scroll-margin-top:70px;border-bottom:1px solid rgba(255,255,255,.055);overflow:hidden}.eyebrow{color:var(--cyan);font-size:.78rem;font-weight:850;letter-spacing:2px;text-transform:uppercase}.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:55px;align-items:center}.hero h1{font-size:clamp(2.8rem,6.6vw,5.5rem);line-height:1.02;letter-spacing:-.06em;margin:18px 0 22px}.gradient{background:linear-gradient(100deg,var(--cyan),#b8a7ff 72%);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:1.08rem;color:var(--muted);max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}.micro{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:.88rem}.dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 16px var(--cyan)}.visual{position:relative;min-height:420px;display:grid;place-items:center}.orbit{position:absolute;width:min(390px,90%);aspect-ratio:1;border:1px solid rgba(155,131,255,.3);border-radius:50%;box-shadow:0 0 90px rgba(86,240,223,.07),inset 0 0 70px rgba(155,131,255,.07)}.code-card{position:relative;width:min(420px,100%);background:linear-gradient(145deg,rgba(25,34,56,.96),rgba(12,17,30,.96));border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:22px;box-shadow:0 28px 80px rgba(0,0,0,.38);transform:rotate(2deg)}.window-top{display:flex;gap:7px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:18px}.window-top i{width:9px;height:9px;border-radius:50%;background:#ff6f91}.window-top i:nth-child(2){background:#ffd166}.window-top i:nth-child(3){background:var(--cyan)}.file-label{float:right;color:var(--muted);font-size:.76rem;margin-top:-2px}.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:clamp(.72rem,1.5vw,.9rem);line-height:2;color:#d8e2ff;white-space:pre-wrap}.pink{color:#ff91c8}.blue{color:#85b7ff}.green{color:#8ff2ce}.yellow{color:#f8d78b}.float-chip{position:absolute;padding:12px 16px;background:#151e32;border:1px solid var(--line);border-radius:14px;box-shadow:0 15px 40px #0005;font-size:.84rem;font-weight:750}.chip-a{top:15%;right:0}.chip-b{bottom:14%;left:0}.section-head{max-width:720px;margin-bottom:38px}.section-head h2{font-size:clamp(2.1rem,4.5vw,3.5rem);line-height:1.1;letter-spacing:-.045em;margin:12px 0}.section-head p{color:var(--muted);margin:0}.slide-inner{width:100%}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,rgba(21,29,48,.9),rgba(12,17,29,.9));border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .25s,border-color .25s}.card:hover{transform:translateY(-5px);border-color:rgba(86,240,223,.48)}.icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:rgba(86,240,223,.1);color:var(--cyan);font-size:1.35rem;margin-bottom:18px}.card h3{margin:0 0 8px;font-size:1.1rem}.card p{margin:0;color:var(--muted);font-size:.94rem}.taglist{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}.tag{border:1px solid var(--line);background:rgba(255,255,255,.035);padding:8px 13px;border-radius:999px;color:#dce4fb;font-size:.86rem}.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.project-art{height:185px;border-radius:16px;margin-bottom:18px;padding:17px;display:flex;align-items:end;overflow:hidden;position:relative;background:linear-gradient(135deg,#1c3150,#31245c)}.project-art:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(86,240,223,.2);filter:blur(1px);right:-20px;top:-50px}.project-art.p2{background:linear-gradient(135deg,#183b3c,#18223e)}.project-art.p3{background:linear-gradient(135deg,#473052,#1c2440)}.mock-window{position:relative;width:100%;height:100%;border:1px solid #ffffff38;background:#0b1022d9;border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:8px}.mock-bar{height:6px;width:42%;background:var(--cyan);border-radius:6px}.mock-line{height:5px;width:78%;background:#ffffff35;border-radius:6px}.mock-line.short{width:45%}.mock-boxes{display:flex;gap:6px;margin-top:auto}.mock-boxes span{height:35px;flex:1;background:#9b83ff55;border:1px solid #ffffff24;border-radius:5px}.project-label{position:absolute;bottom:22px;left:24px;font-size:.8rem;color:#eaf4ff;letter-spacing:1.3px;font-weight:800}.project-note{font-size:.8rem;color:var(--muted);margin-top:12px}.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:35px;align-items:start}.price-card{border:1px solid rgba(86,240,223,.35);background:linear-gradient(145deg,rgba(86,240,223,.09),rgba(155,131,255,.08));border-radius:26px;padding:30px}.price{font-size:3rem;font-weight:900;letter-spacing:-.06em;line-height:1.1;margin:12px 0}.price small{font-size:.95rem;letter-spacing:0;color:var(--muted);font-weight:600}.checklist{list-style:none;padding:0;margin:22px 0}.checklist li{padding:9px 0;color:#d9e2f8;border-bottom:1px solid rgba(255,255,255,.07)}.checklist li:before{content:"✓";color:var(--cyan);font-weight:900;margin-right:10px}.steps{display:grid;gap:14px}.step{display:grid;grid-template-columns:45px 1fr;gap:14px;padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025)}.step-no{width:42px;height:42px;border-radius:13px;background:rgba(155,131,255,.16);color:#c4b7ff;display:grid;place-items:center;font-weight:900}.step h3{margin:0 0 4px}.step p{margin:0;color:var(--muted);font-size:.92rem}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}.contact-box{background:var(--panel);border:1px solid var(--line);padding:26px;border-radius:22px}.field{display:grid;gap:7px;margin-bottom:14px}.field label{font-size:.86rem;color:#dce4fb;font-weight:700}.field input,.field textarea,.field select{width:100%;background:#080d19;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:12px 13px;font:inherit;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #56f0df1a}.field textarea{min-height:115px;resize:vertical}.form-note{font-size:.8rem;color:var(--muted);margin-top:10px}.footer{padding:24px 0;color:var(--muted);font-size:.83rem}.footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.slide-controls{position:fixed;right:18px;bottom:22px;z-index:15;display:flex;gap:8px}.slide-controls button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(16,22,38,.9);color:var(--text);cursor:pointer}.slide-controls button:hover{border-color:var(--cyan);color:var(--cyan)}.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--violet));width:0;z-index:30;transition:width .1s}.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#eafffb;color:#071519;padding:12px 18px;border-radius:12px;font-weight:750;opacity:0;pointer-events:none;transition:.25s;z-index:50}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:850px){.hero-grid,.split,.contact-grid{grid-template-columns:1fr}.hero-grid{gap:15px}.visual{min-height:350px}.grid3,.project-grid{grid-template-columns:repeat(2,1fr)}.chip-a{right:4%}.chip-b{left:4%}.slide{padding-top:105px}.navlinks{gap:14px}}
+@media(max-width:620px){.nav{height:64px}.navlinks{display:none;position:absolute;top:64px;left:0;right:0;padding:18px 5%;background:#0c1120;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch}.navlinks.open{display:flex}.navlinks a{padding:7px}.menu-btn{display:block}.nav .btn{display:none}.grid3,.project-grid{grid-template-columns:1fr}.hero h1{font-size:clamp(2.8rem,13vw,4.5rem)}.visual{min-height:320px}.code-card{padding:16px}.float-chip{font-size:.75rem;padding:9px 12px}.section-head{margin-bottom:26px}.slide{padding:95px 0 65px}.card{padding:21px}.slide-controls{right:12px;bottom:12px}.slide-controls button{width:38px;height:38px}.price-card{padding:24px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="topbar"><div class="wrap nav">
+<a class="brand" href="#home" aria-label="Developer home"><span class="brand-mark">&lt;/&gt;</span><span>DEV<span class="gradient">.STUDIO</span></span></a>
+<nav class="navlinks" id="navlinks" aria-label="Main navigation">
+<a href="#home">Home</a><a href="#services">Services</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
+</nav>
+<a class="btn btn-primary" href="#contact">Let's Talk <span>↗</span></a>
+<button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navlinks" aria-label="Open navigation">☰</button>
+</div></header>
+
+<main>
+<section class="slide" id="home"><div class="wrap hero-grid">
+<div class="reveal">
+<div class="eyebrow">Freelance Website Developer</div>
+<h1>I turn ideas into <span class="gradient">websites that work.</span></h1>
+<p class="lead">Modern, responsive and thoughtfully designed websites for people and small businesses—with clear communication and budget-friendly options.</p>
+<div class="actions"><a class="btn btn-primary" href="#projects">Explore My Work <span>↘</span></a><a class="btn btn-ghost" href="#contact">Start a Project</a></div>
+<div class="micro"><span class="dot"></span> Available for selected website projects</div>
+</div>
+<div class="visual reveal" aria-label="Decorative code editor illustration">
+<div class="orbit"></div>
+<div class="code-card"><div class="window-top"><i></i><i></i><i></i><span class="file-label">portfolio.js</span></div>
+<div class="code"><span class="pink">const</span> developer = {<br> &nbsp; name: <span class="green">"Your Name"</span>,<br> &nbsp; focus: <span class="green">"Web Development"</span>,<br> &nbsp; skills: [<span class="yellow">"HTML"</span>, <span class="yellow">"CSS"</span>,<br> &nbsp; &nbsp; <span class="yellow">"JavaScript"</span>],<br> &nbsp; mindset: <span class="green">"Always improving"</span><br>};<br><br><span class="blue">buildWebsite</span>(idea) <span class="pink">=&gt;</span> result;</div></div>
+<div class="float-chip chip-a">✦ Clean design</div><div class="float-chip chip-b">⌘ Responsive layouts</div>
+</div>
+</div></section>
+
+<section class="slide" id="services"><div class="wrap slide-inner">
+<div class="section-head reveal"><div class="eyebrow">What I can do</div><h2>Websites made for <span class="gradient">your next step.</span></h2><p>Whether you're starting from scratch or refreshing an existing site, I'll help shape your idea into a clear online experience.</p></div>
+<div class="grid3">
+<article class="card reveal"><div class="icon">▣</div><h3>Portfolio Websites</h3><p>Showcase your work, skills, and personal brand with a polished online portfolio.</p></article>
+<article class="card reveal"><div class="icon">◈</div><h3>Business Websites</h3><p>Present your services, key information, and contact details in a professional way.</p></article>
+<article class="card reveal"><div class="icon">↗</div><h3>Landing Pages</h3><p>Focused pages for a product, service, project, or special announcement.</p></article>
+<article class="card reveal"><div class="icon">✧</div><h3>Responsive Design</h3><p>Layouts that adapt thoughtfully to desktop, tablet, and mobile screens.</p></article>
+<article class="card reveal"><div class="icon">⌘</div><h3>Interactive Features</h3><p>Useful navigation, forms, menus, animations, and JavaScript interactions.</p></article>
+<article class="card reveal"><div class="icon">⚙</div><h3>Website Improvements</h3><p>Help refine styling, page structure, content presentation, and common front-end bugs.</p></article>
+</div>
+</div></section>
+
+<section class="slide" id="skills"><div class="wrap split">
+<div class="section-head reveal"><div class="eyebrow">Tools & strengths</div><h2>Simple code.<br><span class="gradient">Thoughtful details.</span></h2><p>I focus on the fundamentals that help websites feel clear, useful, and consistent across devices.</p><div class="taglist"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Responsive Design</span><span class="tag">UI Styling</span><span class="tag">Debugging</span><span class="tag">Accessibility Basics</span><span class="tag">GitHub Pages</span></div></div>
+<div class="steps reveal">
+<div class="step"><div class="step-no">01</div><div><h3>Understand the goal</h3><p>Clarify the audience, content, must-have features, and visual direction.</p></div></div>
+<div class="step"><div class="step-no">02</div><div><h3>Design for real people</h3><p>Use readable typography, clear spacing, intuitive navigation, and mobile-first thinking.</p></div></div>
+<div class="step"><div class="step-no">03</div><div><h3>Build and review</h3><p>Test the main interactions, check responsive layouts, and refine the agreed details.</p></div></div>
+</div>
+</div></section>
+
+<section class="slide" id="projects"><div class="wrap slide-inner">
+<div class="section-head reveal"><div class="eyebrow">Selected work</div><h2>Projects that show <span class="gradient">what's possible.</span></h2><p>Replace these sample project cards with screenshots and links to your real websites before sharing your portfolio with clients.</p></div>
+<div class="project-grid">
+<article class="card reveal"><div class="project-art"><div class="mock-window"><div class="mock-bar"></div><div class="mock-line"></div><div class="mock-line short"></div><div class="mock-boxes"><span></span><span></span><span></span></div></div><div class="project-label">PERSONAL BRAND</div></div><h3>Personal Portfolio</h3><p>A clean space to introduce a person, highlight skills, and present work.</p><div class="project-note">Sample concept · Add your live project link</div></article>
+<article class="card reveal"><div class="project-art p2"><div class="mock-window"><div class="mock-bar"></div><div class="mock-line short"></div><div class="mock-line"></div><div class="mock-boxes"><span></span><span></span></div></div><div class="project-label">LOCAL BUSINESS</div></div><h3>Business Landing Page</h3><p>A service-focused page with clear sections and a strong contact path.</p><div class="project-note">Sample concept · Add your live project link</div></article>
+<article class="card reveal"><div class="project-art p3"><div class="mock-window"><div class="mock-bar"></div><div class="mock-line"></div><div class="mock-line short"></div><div class="mock-boxes"><span></span><span></span><span></span></div></div><div class="project-label">CREATIVE PROJECT</div></div><h3>Creative Web Experience</h3><p>A modern visual direction for a project, community, or personal idea.</p><div class="project-note">Sample concept · Add your live project link</div></article>
+</div>
+</div></section>
+
+<section class="slide" id="pricing"><div class="wrap split">
+<div class="section-head reveal"><div class="eyebrow">Straightforward pricing</div><h2>Good work should feel <span class="gradient">within reach.</span></h2><p>I aim to offer accessible pricing while agreeing on the requirements before work begins. A clear scope helps avoid surprises.</p></div>
+<div class="price-card reveal"><div class="eyebrow">Small website projects</div><div class="price">PKR 1,000 <small>/ starting from</small></div><p style="color:var(--muted);margin:0">Final pricing depends on pages, design complexity, features, and delivery needs.</p><ul class="checklist"><li>Agreed page and feature scope</li><li>Responsive layout</li><li>Core links and interactions checked</li><li>Clear project communication</li></ul><a class="btn btn-primary" href="#contact">Discuss Your Project ↗</a><p class="project-note">Domain, hosting, paid tools, and complex features may cost extra. Confirm all details before ordering.</p></div>
+</div></section>
+
+<section class="slide" id="contact"><div class="wrap slide-inner">
+<div class="section-head reveal"><div class="eyebrow">Let's work together</div><h2>Have an idea? <span class="gradient">Let's build it.</span></h2><p>Tell me what you're imagining. Share the website type, pages you need, preferred style, and your target budget.</p></div>
+<div class="contact-grid">
+<div class="reveal"><h3 style="font-size:1.5rem;margin-top:0">A smooth project starts with a clear conversation.</h3><p style="color:var(--muted)">I value honest communication, thoughtful details, and building something that fits the agreed brief.</p><div class="taglist"><span class="tag">Clear scope</span><span class="tag">Friendly communication</span><span class="tag">Budget-aware</span></div><p class="project-note">Personalize this page with your real Fiverr profile link and preferred contact method before publishing.</p></div>
+<form class="contact-box reveal" id="contactForm">
+<div class="field"><label for="name">Your name</label><input id="name" name="name" placeholder="Enter your name" required></div>
+<div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
+<div class="field"><label for="type">What do you need?</label><select id="type" name="type"><option>Portfolio website</option><option>Business website</option><option>Landing page</option><option>Website redesign</option><option>Other project</option></select></div>
+<div class="field"><label for="message">Project details</label><textarea id="message" name="message" placeholder="Tell me about your idea..." required></textarea></div>
+<button class="btn btn-primary" type="submit" style="width:100%">Prepare Message ↗</button>
+<p class="form-note">This demo form does not send data to a server. It prepares an email draft in your email app.</p>
+</form>
+</div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap footer-row"><span>© <span id="year"></span> DEV.STUDIO · Built with care.</span><span>Replace “Your Name” and sample projects with your own details.</span><a href="#home">Back to top ↑</a></div></footer>
+<div class="slide-controls" aria-label="Section controls"><button id="prevBtn" aria-label="Previous section">↑</button><button id="nextBtn" aria-label="Next section">↓</button></div>
+<div class="toast" id="toast" role="status" aria-live="polite">Email draft prepared.</div>
+<script>
+(() => {
+  const nav = document.getElementById('navlinks');
+  const menuBtn = document.getElementById('menuBtn');
+  const sections = [...document.querySelectorAll('main section[id]')];
+  const progress = document.getElementById('progress');
+  const toast = document.getElementById('toast');
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.textContent = open ? '✕' : '☰';
+  });
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.textContent = '☰';
+  }));
+
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        const id = entry.target.closest('section')?.id;
+        if (id) nav.querySelectorAll('a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, {threshold: 0.15});
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  function updateProgress() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (max > 0 ? window.scrollY / max * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  function goSection(direction) {
+    const current = sections.reduce((best, sec, i) => {
+      const distance = Math.abs(sec.getBoundingClientRect().top - 75);
+      return distance < best.distance ? {index:i, distance} : best;
+    }, {index:0, distance:Infinity}).index;
+    const next = Math.max(0, Math.min(sections.length - 1, current + direction));
+    sections[next].scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+  }
+  document.getElementById('prevBtn').addEventListener('click', () => goSection(-1));
+  document.getElementById('nextBtn').addEventListener('click', () => goSection(1));
+
+  document.getElementById('contactForm').addEventListener('submit', event => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const subject = encodeURIComponent('Website project inquiry from ' + form.get('name'));
+    const body = encodeURIComponent(
+      'Name: ' + form.get('name') + '\nEmail: ' + form.get('email') +
+      '\nProject type: ' + form.get('type') + '\n\nProject details:\n' + form.get('message')
+    );
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2600);
+    window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+  });
+})();
+</script>
+</body>
+</html>'''
+path = out_dir / "index.html"
+path.write_text(html, encoding="utf-8")
+print(f"Created website: {path}")
